@@ -126,7 +126,7 @@ def plot_map_for_pattern_id(pattern_id):
     
     fig.update_layout(
         mapbox_style="stamen-terrain", 
-        mapbox_zoom=10.6,
+        mapbox_zoom=11,
         margin={"r":0,"t":0,"l":0,"b":0},
         height=600, width = 600
     )
