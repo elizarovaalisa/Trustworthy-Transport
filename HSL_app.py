@@ -270,7 +270,7 @@ def webchart(d, time, modes):
     fig.update_layout(
         showlegend=True,
         width=700, height=500,
-        margin={"r":10,"t":10,"l":10,"b":10},
+        margin={"r":10,"t":20,"l":10,"b":10},
         #title='Average delay on weekday and weekend in seconds from 00.00 to 23.59',
     )
     
@@ -333,8 +333,9 @@ row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3, row0_3, row0_spacer4, 
 weektimes = []
 modelist = []
 with row0_1:
+    print('Mode changed!')
     """Select mode of transport:"""
-    all = st.checkbox('All')
+    all = st.checkbox('All', True)
     if all:
         modelist.append("all")
     bus = st.checkbox('Bus')
@@ -360,15 +361,19 @@ with row0_2:
     weekend = st.checkbox('Weekend')
     if weekend:
         weektimes.append("weekend")
-    wholeweek = st.checkbox('Whole week')
+    wholeweek = st.checkbox('Whole week', True)
     if wholeweek:
         weektimes.append("all")
     
-    if not all and not bus and not train and not tram and not weekdays and not weekend and not wholeweek:
+    if not all and not bus and not train and not tram:
+        all = True
+        modelist.append("all")
+    
+    if not weekdays and not weekend and not wholeweek:
+        wholeweek = True
+        weektimes.append("all")
 
-        webchart(d, time = ["all"], modes = ["all"])
-    else:
-        webchart(d, time = weektimes, modes = modelist)
+    webchart(d, time = weektimes, modes = modelist)
 
 
 
