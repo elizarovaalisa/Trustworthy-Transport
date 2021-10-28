@@ -130,6 +130,12 @@ def plot_map_for_pattern_id(pattern_id):
         margin={"r":0,"t":0,"l":0,"b":0},
         height=600, width = 600
     )
+    fig.update_layout(legend=dict(
+        yanchor="bottom",
+        y=-0.15,
+        xanchor="right",
+        x=1
+    ))
     fig
 
 
@@ -328,19 +334,19 @@ weektimes = []
 modelist = []
 with row0_1:
     """Select mode of transport:"""
-    all = st.checkbox('all')
+    all = st.checkbox('All')
     if all:
         modelist.append("all")
-    bus = st.checkbox('bus')
+    bus = st.checkbox('Bus')
     if bus:
         modelist.append("bus")
-    train = st.checkbox('train')
+    train = st.checkbox('Train')
     if train:
         modelist.append("train")
-    metro = st.checkbox('metro')
+    metro = st.checkbox('Metro')
     if metro:
         modelist.append("metro")
-    tram = st.checkbox('tram')
+    tram = st.checkbox('Tram')
     if tram:
         modelist.append("tram")
 
