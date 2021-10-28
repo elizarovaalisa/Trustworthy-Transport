@@ -333,7 +333,6 @@ row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3, row0_3, row0_spacer4, 
 weektimes = []
 modelist = []
 with row0_1:
-    print('Mode changed!')
     """Select mode of transport:"""
     all = st.checkbox('All', True)
     if all:
